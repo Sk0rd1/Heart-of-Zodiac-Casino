@@ -108,16 +108,23 @@ public class HUDEngine : MonoBehaviour
 
     public void MainMenu()
     {
-        if (GameObject.Find("SlotsObjects").active)
+        try
         {
-            if (GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().isReadyToGenerate)
+            if (GameObject.Find("SlotsObjects").active)
             {
-                GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().Clear();
-                GameEngine.MainMenu();
+                if (GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().isReadyToGenerate)
+                {
+                    GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().Clear();
+                    GameEngine.MainMenu();
+                }
             }
+            else
+                GameEngine.MainMenu();
+        } 
+        catch
+        {
+            GameEngine.MainMenu();
         }
-        else
-        GameEngine.MainMenu();
     }
 
     public void ResetAll()
@@ -274,7 +281,6 @@ public class HUDEngine : MonoBehaviour
 
     public void BuyMinusLvl()
     {
-        Debug.Log("MinusLvl");
         if (200 <= saveData.money)
         {
             saveData.money -= 200;
