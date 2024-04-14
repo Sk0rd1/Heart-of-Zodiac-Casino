@@ -188,7 +188,6 @@ public static class LevelGenerator
                     go.GetComponent<MeshRenderer>().material = materialObstacle[obLvl - 2];
                     go.GetComponent<ObstacleRotation>().ObstacleLvl = obLvl - 1;
                 }
-                Debug.Log(go.name + " " + obLvl);
             }
             catch { }
         }
