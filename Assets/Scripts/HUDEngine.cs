@@ -95,7 +95,6 @@ public class HUDEngine : MonoBehaviour
             GameEngine.AddTime();
         }
     }
-
     public void Upgrade()
     {
         GameEngine.Upgrade();
@@ -109,6 +108,15 @@ public class HUDEngine : MonoBehaviour
 
     public void MainMenu()
     {
+        if (GameObject.Find("SlotsObjects").active)
+        {
+            if (GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().isReadyToGenerate)
+            {
+                GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().Clear();
+                GameEngine.MainMenu();
+            }
+        }
+        else
         GameEngine.MainMenu();
     }
 

@@ -27,6 +27,10 @@ public static class GameEngine
         circleObjects.SetActive(true);
         winGame.SetActive(false);
         loseGame.SetActive(false);
+        slotsObjects.SetActive(false);
+        slots.SetActive(false);
+
+
         LevelGenerator.CreateLevel(GameProgress.LoadGame().upKeyLvl);
         GameProgress.SaveData saveData = GameProgress.GetSave();
 
@@ -125,7 +129,7 @@ public static class GameEngine
         slotsObjects.SetActive(true);
         slots.SetActive(true);
 
-         GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().GenerateSlots();
+         GameObject.Find("SlotsObjects").GetComponent<SlotsGenerator>().GenerateFirstSlots();
     }
 
 
