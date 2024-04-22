@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.Rendering.PostProcessing;
 public static class LevelGenerator
 {
     private static Material[] materialObstacle = new Material[10];
@@ -111,6 +111,16 @@ public static class LevelGenerator
             go.GetComponent<ObstacleRotation>().ObstacleLvl = obstacleLvl + 1;
             go.GetComponent<MeshRenderer>().material = materialObstacle[obstacleLvl];
 
+            PostProcessVolume volume = go.GetComponent<PostProcessVolume>();
+            PostProcessProfile profile = volume.profile;
+            Bloom bloom = profile.GetSetting<Bloom>();
+            Color[] colors = new Color[] { new Color(255, 255, 255, 255), new Color(190, 190, 190, 255),
+                new Color(146, 209, 79, 255), new Color(0, 175, 80, 255), new Color(1, 176, 241, 255), new Color(1, 32 ,96, 255),
+                new Color(112, 48, 160, 255), new Color(255, 102, 0, 255), new Color(254, 0, 0, 255), new Color(32, 27, 27, 255)};
+            ColorParameter colorParameter = new ColorParameter();
+            colorParameter.value = colors[0];
+            bloom.color = colorParameter;
+            
             bool isEmpty = true;
 
             for (int count = 0; count < 30; count++)
