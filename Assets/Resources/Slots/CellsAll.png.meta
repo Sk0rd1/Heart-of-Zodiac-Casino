@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e00f93eb7b631f4c9a7a248c302ac7e
+guid: 05d131dd6743bf041ac87788f2aaedd6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -141,421 +141,190 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cell1
+      name: CellsAll_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1812
-        width: 500
-        height: 453
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65503cfe784da62418b98f3b7e8f8cf4
-      internalID: 622316499
+      spriteID: 7716645c263f25b449bf4e819a0e37ae
+      internalID: 306403300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cell_5
+      name: CellsAll_1
       rect:
         serializedVersion: 2
-        x: 493
-        y: 1812
-        width: 500
-        height: 453
+        x: 100
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a3e91fffbaaa6534b871ef7ae7dadea3
-      internalID: -1856768696
+      spriteID: 7b16b6a792d622544856329737dbe2ec
+      internalID: -1280940395
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cell_3
+      name: CellsAll_2
       rect:
         serializedVersion: 2
-        x: 993
-        y: 1812
-        width: 500
-        height: 453
+        x: 200
+        y: 200
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2586210d1011304479ab7dd11e9a2c95
-      internalID: 875856185
+      spriteID: bce39959bf8a6154abd3496dc6d245a3
+      internalID: -1792998678
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_3
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 1812
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c81f905b07ac4c4191bf7dcff21dfe1
-      internalID: -68091259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cellStrawbery
+      name: CellsAll_3
       rect:
         serializedVersion: 2
         x: 0
-        y: 1359
-        width: 500
-        height: 453
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 572754b93408f4544a68e577f1486c33
-      internalID: -1407692471
+      spriteID: 72a614f83572482488d75b6b475dd530
+      internalID: -701605388
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_5
+      name: CellsAll_4
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1359
-        width: 500
-        height: 453
+        x: 100
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 33e6718101ac5234181729ab3fa4e042
-      internalID: -212189855
+      spriteID: 4a3d6b0aa93b2a84abbbdc262cbe86a8
+      internalID: -1593077346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_6
+      name: CellsAll_5
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1359
-        width: 500
-        height: 453
+        x: 200
+        y: 100
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e85bf8de326b1c4fb27fcf9acf11dc5
-      internalID: 230768090
+      spriteID: 0eaf5064b404ba448a02f46336b52edd
+      internalID: -2051489096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cell_4
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 1359
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e3ed350c6f071024f82e264cc5f23e21
-      internalID: -596040369
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cell_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 906
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9d4a6735f938394cb4f1f228b0e61ca
-      internalID: -1533161832
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_9
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 906
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d1d4671797a80f458af775a80a486a5
-      internalID: -1143411413
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_10
-      rect:
-        serializedVersion: 2
-        x: 1000
-        y: 906
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 37e01be8b19c5b84e995f76d5c185085
-      internalID: 737125535
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_11
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 906
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b274cc0169f75144d9803ecde420a754
-      internalID: -136130346
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 453
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b4f52dece21ac9448bc6f2cdfee56b55
-      internalID: -944796482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_13
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 453
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 232f611c313558b419ac2a2ed0c42e46
-      internalID: -559957047
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cell_6
-      rect:
-        serializedVersion: 2
-        x: 1003
-        y: 453
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e4f9b9eec381374ea8601bd43aacf2c
-      internalID: -2083061367
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_15
-      rect:
-        serializedVersion: 2
-        x: 1500
-        y: 453
-        width: 500
-        height: 453
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b98a1907696652d4696da78a7a16e97b
-      internalID: -1912060704
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_16
+      name: CellsAll_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 500
-        height: 453
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bcd9d2c61e0ad342a2d2f42b473b946
-      internalID: 2032671124
+      spriteID: 123aba18b5e0a25439c0aaf5b8a09960
+      internalID: -1010446974
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: 76-Casino-Icons-strip2_17
+      name: CellsAll_7
       rect:
         serializedVersion: 2
-        x: 500
+        x: 100
         y: 0
-        width: 500
-        height: 453
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ecf962d54f347624f92e808602775773
-      internalID: 632622305
+      spriteID: 306c76b7fe77e8e41885159d7605b42b
+      internalID: 1105246194
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cell_8
+      name: CellsAll_8
       rect:
         serializedVersion: 2
-        x: 1000
+        x: 200
         y: 0
-        width: 500
-        height: 363
+        width: 100
+        height: 100
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83ef12b420212ba43891403f972f253e
-      internalID: -395399260
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cell_7
-      rect:
-        serializedVersion: 2
-        x: 1548
-        y: 0
-        width: 452
-        height: 360
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6d72afc753ec3543845b2d4718ca7b9
-      internalID: -1838974947
+      spriteID: e51efd6d2c5782d44b0e91153abeac3b
+      internalID: 1179016227
       vertices: []
       indices: 
       edges: []
@@ -571,26 +340,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      76-Casino-Icons-strip2_10: 737125535
-      76-Casino-Icons-strip2_11: -136130346
-      76-Casino-Icons-strip2_12: -944796482
-      76-Casino-Icons-strip2_13: -559957047
-      76-Casino-Icons-strip2_15: -1912060704
-      76-Casino-Icons-strip2_16: 2032671124
-      76-Casino-Icons-strip2_17: 632622305
-      76-Casino-Icons-strip2_3: -68091259
-      76-Casino-Icons-strip2_5: -212189855
-      76-Casino-Icons-strip2_6: 230768090
-      76-Casino-Icons-strip2_9: -1143411413
-      cell1: 622316499
-      cellStrawbery: -1407692471
-      cell_2: -1533161832
-      cell_3: 875856185
-      cell_4: -596040369
-      cell_5: -1856768696
-      cell_6: -2083061367
-      cell_7: -1838974947
-      cell_8: -395399260
+      CellsAll_0: 306403300
+      CellsAll_1: -1280940395
+      CellsAll_2: -1792998678
+      CellsAll_3: -701605388
+      CellsAll_4: -1593077346
+      CellsAll_5: -2051489096
+      CellsAll_6: -1010446974
+      CellsAll_7: 1105246194
+      CellsAll_8: 1179016227
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
