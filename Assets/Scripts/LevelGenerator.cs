@@ -113,9 +113,13 @@ public static class LevelGenerator
             go.GetComponent<ObstacleRotation>().ObstacleLvl = obstacleLvl + 1;
             go.GetComponent<MeshRenderer>().material = materialObstacle[obstacleLvl];
 
+            Color[] colors = new Color[] { new Color(224, 224, 224, 255), new Color(162, 245, 117, 255),
+                new Color(131, 255, 0, 255), new Color(8, 159, 77, 255), new Color(0, 185, 255, 255), new Color(8, 88 ,255, 255),
+                new Color(156, 38, 245, 255), new Color(255, 150, 0, 255), new Color(255, 8, 8, 255), new Color(130, 128, 128, 255)};
+
             try
             {
-                go.GetComponentInChildren<MeshRenderer>().material = materialOutlineObstacle[obstacleLvl];
+                go.GetComponentInChildren<SpriteRenderer>().color = colors[obstacleLvl];
             }
             catch { }
             /*PostProcessVolume volume = go.GetComponent<PostProcessVolume>();
