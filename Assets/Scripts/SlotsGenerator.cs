@@ -57,7 +57,7 @@ public class SlotsGenerator : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().sprite = cellSprites[ranValue];
                 go.GetComponent<MoveCell>().MoveToBot();
 
-                go.transform.position = new Vector3(i - 2, j + 3, 0);
+                go.transform.position = new Vector3(i - 2, j + 2, 0);
             }
 
             int verticalPos = fakeCells[i].Length + 2;
@@ -74,11 +74,11 @@ public class SlotsGenerator : MonoBehaviour
                 MoveCell moveCell = go.GetComponent<MoveCell>();
 
                 if(i == 4 && j == 0)
-                    moveCell.SetYPosition(2 - j, true);
+                    moveCell.SetYPosition(1 - j, true);
                 else
-                    moveCell.SetYPosition(2 - j);
+                    moveCell.SetYPosition(1 - j);
 
-                go.transform.position = new Vector3(i - 2, 2 - j + verticalPos, 0);
+                go.transform.position = new Vector3(i - 2, 1 - j + verticalPos, 0);
 
                 cellGO.Add(go);
             }
@@ -160,7 +160,7 @@ public class SlotsGenerator : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().sprite = cellSprites[ranValue];
                 MoveCell moveCell = go.GetComponent<MoveCell>();
 
-                go.transform.position = new Vector3(i - 2, 2 - j, 0);
+                go.transform.position = new Vector3(i - 2, 1 - j, 0);
 
                 cellGO.Add(go);
             }

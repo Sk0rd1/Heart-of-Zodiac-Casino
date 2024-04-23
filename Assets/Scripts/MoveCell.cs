@@ -6,7 +6,7 @@ public class MoveCell : MonoBehaviour
 {
     private float moveSpeed = 15f;
 
-    private float positionY = -1;
+    private float positionY = -2.1f;
 
     public void SetYPosition(float positionY, bool isLastElement = false)
     {
@@ -37,7 +37,7 @@ public class MoveCell : MonoBehaviour
 
     private IEnumerator MoveFakeCell()
     {
-        while (transform.position.y > -1.1)
+        while (transform.position.y > -2.1)
         {
             transform.position -= new Vector3(0, moveSpeed * Time.deltaTime, 0);
             yield return new WaitForEndOfFrame();

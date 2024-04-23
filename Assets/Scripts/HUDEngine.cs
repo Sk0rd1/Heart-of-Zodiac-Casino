@@ -39,13 +39,13 @@ public class HUDEngine : MonoBehaviour
     private TextMeshProUGUI textAddTime;
 
     [SerializeField]
-    private Button bKeyLvl;
+    private GameObject bKeyLvl;
     [SerializeField]
-    private Button bKeySpeed;
+    private GameObject bKeySpeed;
     [SerializeField]
-    private Button bKeyReload;
+    private GameObject bKeyReload;
     [SerializeField]
-    private Button bRoundDuration;
+    private GameObject bRoundDuration;
 
     [SerializeField]
     private GameObject noCoin;

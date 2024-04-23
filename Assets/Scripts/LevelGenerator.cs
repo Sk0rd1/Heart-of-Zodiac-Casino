@@ -8,6 +8,7 @@ using UnityEngine.Rendering.PostProcessing;
 public static class LevelGenerator
 {
     private static Material[] materialObstacle = new Material[10];
+    private static Material[] materialOutlineObstacle = new Material[10];
     private static GameObject obstaclePrefab;
     private static bool isSpritesInitializated = false;
     private static List<GameObject> obstacles = new List<GameObject>();
@@ -30,6 +31,7 @@ public static class LevelGenerator
         for (int i = 0; i < materialObstacle.Length; i++)
         {
             materialObstacle[i] = Resources.Load<Material>("CircleElements/Materials/lvl" + (i + 1).ToString());
+            materialObstacle[i] = Resources.Load<Material>("CircleElements/Materials/outlinelvl" + (i + 1).ToString());
         }
 
         obstaclePrefab = Resources.Load("CircleElements/Obstacle") as GameObject;
@@ -111,7 +113,12 @@ public static class LevelGenerator
             go.GetComponent<ObstacleRotation>().ObstacleLvl = obstacleLvl + 1;
             go.GetComponent<MeshRenderer>().material = materialObstacle[obstacleLvl];
 
-            PostProcessVolume volume = go.GetComponent<PostProcessVolume>();
+            try
+            {
+                go.GetComponentInChildren<MeshRenderer>().material = materialOutlineObstacle[obstacleLvl];
+            }
+            catch { }
+            /*PostProcessVolume volume = go.GetComponent<PostProcessVolume>();
             PostProcessProfile profile = volume.profile;
             Bloom bloom = profile.GetSetting<Bloom>();
             Color[] colors = new Color[] { new Color(255, 255, 255, 255), new Color(190, 190, 190, 255),
@@ -119,7 +126,7 @@ public static class LevelGenerator
                 new Color(112, 48, 160, 255), new Color(255, 102, 0, 255), new Color(254, 0, 0, 255), new Color(32, 27, 27, 255)};
             ColorParameter colorParameter = new ColorParameter();
             colorParameter.value = colors[0];
-            bloom.color = colorParameter;
+            bloom.color = colorParameter;*/
             
             bool isEmpty = true;
 
