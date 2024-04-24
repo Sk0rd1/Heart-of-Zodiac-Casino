@@ -140,7 +140,7 @@ public class SlotsGenerator : MonoBehaviour
     {
         if(saveData.freeSpins > 0)
         {
-            isFreeSpin = false;
+            isFreeSpin = true;
             saveData.freeSpins -= 1;
             textFreeSpin.text = saveData.freeSpins.ToString();
             GenerateSlots();
@@ -174,8 +174,9 @@ public class SlotsGenerator : MonoBehaviour
         if (!isReadyToGenerate)
             return;
 
-        if (!CheckMoney())
-            return;
+        if(!isFreeSpin)
+            if (!CheckMoney())
+                return;
 
         //StopShowLine();
         soundManager.ButtonSpinUI();
