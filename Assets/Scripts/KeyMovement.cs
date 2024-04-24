@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,10 +18,14 @@ public class KeyMovement : MonoBehaviour
     private float timeReload = 2f;
     [SerializeField]
     private float roundDuration = 30f;
+    [SerializeField]
+    private SoundManager soundManager;
 
     private bool isPlay = false;
     private bool isReload = false;
     private bool isTimerStarted = false;
+
+    public bool IsTouch { private get; set; } = false;
 
     public void StartGame()
     {
@@ -51,8 +56,11 @@ public class KeyMovement : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
-        if(isTimerStarted)
+        if (isTimerStarted)
+        {
+            soundManager.GameOver();
             GameEngine.LoseGame();
+        }
         StopGame();
     }
 
@@ -76,14 +84,22 @@ public class KeyMovement : MonoBehaviour
 
     private IEnumerator Move()
     {
+        bool isStartMoveSound = false;
         while (isPlay)
         {
-            if (Input.GetKey(KeyCode.Mouse0) && !isReload)
+            if (IsTouch && !isReload)
             {
+                if(!isStartMoveSound)
+                {
+                    isStartMoveSound = true;
+                    soundManager.KeyMove();
+                }
                 transform.position = new Vector3(0, transform.position.y + keySpeed * Time.deltaTime, -2);
             }
             else
             {
+                isStartMoveSound = false;
+                soundManager.KeyMoveStop();
                 transform.position = new Vector3(0, transform.position.y - keySpeed * Time.deltaTime, -2);
 
                 if (transform.position.y < 0)
@@ -104,12 +120,14 @@ public class KeyMovement : MonoBehaviour
             {
                 Destroy(collider.gameObject);
             }
+            soundManager.KeyKnock();
             Reload();
         }
 
         if (collider.gameObject.CompareTag("SlotMachine"))
         {
             StopGame();
+            soundManager.GameWin();
             GameEngine.WinGame(int.Parse(timerText.text));
         }
     }

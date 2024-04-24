@@ -41,6 +41,8 @@ public class SlotsGenerator : MonoBehaviour
     private TextMeshProUGUI textFreeSpin;
     [SerializeField]
     private TextMeshProUGUI textPlusFreeSpin;
+    [SerializeField]
+    private SoundManager soundManager;
     private int betValue = 1;
     private float animationTime = 1.5f;
 
@@ -176,6 +178,7 @@ public class SlotsGenerator : MonoBehaviour
             return;
 
         //StopShowLine();
+        soundManager.ButtonSpinUI();
         textTotalWin.gameObject.SetActive(false);
 
         isReadyToGenerate = false;
@@ -327,6 +330,7 @@ public class SlotsGenerator : MonoBehaviour
         {
             if(totalResults[i] != 0)
             {
+                soundManager.WinSpin();
                 int winCount = totalResults[i];
                 float currentCount = 0;
                 for(float j = 0; j <= animationTime; j += Time.deltaTime)
@@ -446,45 +450,45 @@ public class SlotsGenerator : MonoBehaviour
         {
             if (numFroot + numClover == 5)
             {
-                totalResult = 40 * betValue;
-            }
-            else if (numFroot + numClover == 4)
-            {
-                totalResult = 25 * betValue;
-            }
-            else if (numFroot + numClover == 3)
-            {
-                totalResult = 15 * betValue;
-            }
-        }
-        else if (uniqueValue == 5)
-        {
-            if (numFroot + numClover == 5)
-            {
                 totalResult = 100 * betValue;
             }
             else if (numFroot + numClover == 4)
             {
-                totalResult = 60 * betValue;
+                totalResult = 65 * betValue;
             }
             else if (numFroot + numClover == 3)
             {
                 totalResult = 45 * betValue;
             }
         }
+        else if (uniqueValue == 5)
+        {
+            if (numFroot + numClover == 5)
+            {
+                totalResult = 200 * betValue;
+            }
+            else if (numFroot + numClover == 4)
+            {
+                totalResult = 120 * betValue;
+            }
+            else if (numFroot + numClover == 3)
+            {
+                totalResult = 80 * betValue;
+            }
+        }
         else if (uniqueValue == 6)
         {
             if (numFroot + numClover == 5)
             {
-                totalResult = 150 * betValue;
+                totalResult = 300 * betValue;
             }
             else if (numFroot + numClover == 4)
             {
-                totalResult = 100 * betValue;
+                totalResult = 200 * betValue;
             }
             else if (numFroot + numClover == 3)
             {
-                totalResult = 50 * betValue;
+                totalResult = 150 * betValue;
             }
         }
         else if (uniqueValue == 7)

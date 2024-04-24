@@ -56,7 +56,7 @@ public static class GameEngine
         //upgrade.SetActive(false);
 
         GameProgress.SaveData saveGame = GameProgress.LoadGame();
-        int price = 100 + 50 * saveGame.upKeyLvl + 5 * time;
+        int price = 100 + 50 * saveGame.upKeyLvl + 15 * time;
         saveGame.money += price;
         saveGame.freeSpins++;
 

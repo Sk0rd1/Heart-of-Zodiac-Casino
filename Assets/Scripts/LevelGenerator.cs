@@ -8,7 +8,7 @@ using UnityEngine.Rendering.PostProcessing;
 public static class LevelGenerator
 {
     private static Material[] materialObstacle = new Material[10];
-    private static Material[] materialOutlineObstacle = new Material[10];
+    //private static Material[] materialOutlineObstacle = new Material[10];
     private static GameObject obstaclePrefab;
     private static bool isSpritesInitializated = false;
     private static List<GameObject> obstacles = new List<GameObject>();
@@ -31,7 +31,7 @@ public static class LevelGenerator
         for (int i = 0; i < materialObstacle.Length; i++)
         {
             materialObstacle[i] = Resources.Load<Material>("CircleElements/Materials/lvl" + (i + 1).ToString());
-            materialObstacle[i] = Resources.Load<Material>("CircleElements/Materials/outlinelvl" + (i + 1).ToString());
+            //materialObstacle[i] = Resources.Load<Material>("CircleElements/Materials/outlinelvl" + (i + 1).ToString());
         }
 
         obstaclePrefab = Resources.Load("CircleElements/Obstacle") as GameObject;
@@ -59,7 +59,10 @@ public static class LevelGenerator
 
     public static void CreateObstacles(int keyLvl)
     {
-        int numOfObstacle = 4 + 2 * keyLvl;
+        Debug.Log(materialObstacle[0]);
+        Debug.Log(materialObstacle[1]);
+
+        int numOfObstacle = 6 + (3 * (keyLvl + 1));
 
         bool[][] intervals = new bool[4][];
         for (int i = 0; i < 4; i++)
@@ -117,11 +120,11 @@ public static class LevelGenerator
                 new Color(131, 255, 0, 255), new Color(8, 159, 77, 255), new Color(0, 185, 255, 255), new Color(8, 88 ,255, 255),
                 new Color(156, 38, 245, 255), new Color(255, 150, 0, 255), new Color(255, 8, 8, 255), new Color(130, 128, 128, 255)};
 
-            try
+            /*try
             {
                 go.GetComponentInChildren<SpriteRenderer>().color = colors[obstacleLvl];
             }
-            catch { }
+            catch { } */
             /*PostProcessVolume volume = go.GetComponent<PostProcessVolume>();
             PostProcessProfile profile = volume.profile;
             Bloom bloom = profile.GetSetting<Bloom>();
