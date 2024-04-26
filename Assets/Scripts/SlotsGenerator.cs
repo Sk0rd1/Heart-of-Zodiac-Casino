@@ -451,33 +451,18 @@ public class SlotsGenerator : MonoBehaviour
         {
             if (numFroot + numClover == 5)
             {
-                totalResult = 100 * betValue;
-            }
-            else if (numFroot + numClover == 4)
-            {
-                totalResult = 65 * betValue;
-            }
-            else if (numFroot + numClover == 3)
-            {
-                totalResult = 45 * betValue;
-            }
-        }
-        else if (uniqueValue == 5)
-        {
-            if (numFroot + numClover == 5)
-            {
                 totalResult = 200 * betValue;
             }
             else if (numFroot + numClover == 4)
             {
-                totalResult = 120 * betValue;
+                totalResult = 100 * betValue;
             }
             else if (numFroot + numClover == 3)
             {
-                totalResult = 80 * betValue;
+                totalResult = 35 * betValue;
             }
         }
-        else if (uniqueValue == 6)
+        else if (uniqueValue == 5)
         {
             if (numFroot + numClover == 5)
             {
@@ -485,7 +470,22 @@ public class SlotsGenerator : MonoBehaviour
             }
             else if (numFroot + numClover == 4)
             {
-                totalResult = 200 * betValue;
+                totalResult = 150 * betValue;
+            }
+            else if (numFroot + numClover == 3)
+            {
+                totalResult = 75 * betValue;
+            }
+        }
+        else if (uniqueValue == 6)
+        {
+            if (numFroot + numClover == 5)
+            {
+                totalResult = 1000 * betValue;
+            }
+            else if (numFroot + numClover == 4)
+            {
+                totalResult = 300 * betValue;
             }
             else if (numFroot + numClover == 3)
             {

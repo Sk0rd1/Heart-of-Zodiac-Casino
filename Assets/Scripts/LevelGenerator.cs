@@ -59,9 +59,6 @@ public static class LevelGenerator
 
     public static void CreateObstacles(int keyLvl)
     {
-        Debug.Log(materialObstacle[0]);
-        Debug.Log(materialObstacle[1]);
-
         int numOfObstacle = 6 + (3 * (keyLvl + 1));
 
         bool[][] intervals = new bool[4][];
