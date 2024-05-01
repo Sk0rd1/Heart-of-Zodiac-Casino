@@ -24,7 +24,7 @@ public class KeyMovement : MonoBehaviour
     private bool isPlay = false;
     private bool isReload = false;
     private bool isTimerStarted = false;
-
+    private int countPickUpCoin = 0;
     public bool IsTouch { private get; set; } = false;
 
     public void StartGame()
@@ -85,6 +85,7 @@ public class KeyMovement : MonoBehaviour
     private IEnumerator Move()
     {
         bool isStartMoveSound = false;
+        countPickUpCoin = 0;
         while (isPlay)
         {
             if (IsTouch && !isReload)
@@ -128,7 +129,14 @@ public class KeyMovement : MonoBehaviour
         {
             StopGame();
             soundManager.GameWin();
-            GameEngine.WinGame(int.Parse(timerText.text));
+            GameEngine.WinGame(int.Parse(timerText.text), countPickUpCoin);
+        }
+
+        if (collider.gameObject.CompareTag("GameCoin"))
+        {
+            soundManager.PickUpCoin();
+            countPickUpCoin += 1;
+            Destroy(collider.gameObject);
         }
     }
 

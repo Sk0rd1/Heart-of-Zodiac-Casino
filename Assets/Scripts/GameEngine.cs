@@ -47,7 +47,7 @@ public static class GameEngine
         loseGame.SetActive(true);
     }
 
-    public static void WinGame(int time)
+    public static void WinGame(int time, int pickUpCoin)
     {
         LevelGenerator.ClearLevel();
         //circleObjects.SetActive(false);
@@ -56,7 +56,7 @@ public static class GameEngine
         //upgrade.SetActive(false);
 
         GameProgress.SaveData saveGame = GameProgress.LoadGame();
-        int price = 100 + 50 * saveGame.upKeyLvl + 15 * time;
+        int price = 100 + 25 * saveGame.upKeyLvl + 10 * time + pickUpCoin * 100;
         saveGame.money += price;
         saveGame.freeSpins++;
 

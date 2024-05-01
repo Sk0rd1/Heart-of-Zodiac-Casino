@@ -23,7 +23,11 @@ public class SoundManager : MonoBehaviour
     [SerializeField]
     private AudioSource keyMove;
     [SerializeField]
+    private AudioSource pickUpCoin;
+
+    [SerializeField]
     private AudioMixerGroup mixer;
+
     [SerializeField]
     private SwitchManager switchSoundOn;
     [SerializeField]
@@ -110,5 +114,10 @@ public class SoundManager : MonoBehaviour
     public void KeyMoveStop()
     {
         keyMove.Stop();
+    }
+
+    public void PickUpCoin()
+    {
+        pickUpCoin.Play();
     }
 }

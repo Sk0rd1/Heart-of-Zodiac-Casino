@@ -76,7 +76,9 @@ public static class LevelGenerator
         for (int i = 0; i < numOfObstacle; i++)
         {
             int rowNum = Random.Range(0, 4);
-            int angleNum = Random.Range(0, 5);
+            int angleNum = Random.Range(0, 11);
+            if (i == 0)
+                angleNum = 10;
 
             int obstacleProb = Random.Range(0, 100);
 
@@ -94,29 +96,51 @@ public static class LevelGenerator
 
             int angle;
 
-            if (angleNum == 0)
+            if (angleNum == 0 || angleNum == 1)
                 angle = 120;
-            else if (angleNum == 1)
+            else if (angleNum == 2 || angleNum == 3)
                 angle = 90;
-            else if (angleNum == 2)
+            else if (angleNum == 4 || angleNum == 5)
                 angle = 60;
-            else if (angleNum == 3)
+            else if (angleNum == 6 || angleNum == 7)
                 angle = 45;
-            else
+            else if (angleNum == 8 || angleNum == 9)
                 angle = 30;
+            else
+            {
+                if (rowNum == 0)
+                    angle = 30;
+                else if (rowNum == 1)
+                    angle = 20;
+                else if (rowNum == 2)
+                    angle = 15;
+                else
+                    angle = 10;
+            }
 
-            GameObject obstaclePrefab = Resources.Load<GameObject>("CircleElements/Circles/" + (rowNum + 1).ToString() + "(" + angle.ToString() + ")");
+            GameObject obstaclePrefab;
+            if (angleNum < 10)
+            {
+                obstaclePrefab = Resources.Load<GameObject>("CircleElements/Circles/" + (rowNum + 1).ToString() + "(" + angle.ToString() + ")");
+            }
+            else
+            {
+                obstaclePrefab = Resources.Load<GameObject>("CircleElements/Circles/" + (rowNum + 1).ToString() + "(coin)");
+            }
             GameObject go = GameObject.Instantiate(obstaclePrefab, new Vector3(0, 0, 0), Quaternion.Euler(0, 0, 0));
             ObstacleRotation or = go.GetComponent<ObstacleRotation>();
-            go.tag = "obstacle";
+            //go.tag = "obstacle";
 
-            go.GetComponent<ObstacleRotation>().ObstacleLvl = obstacleLvl + 1;
-            go.GetComponent<MeshRenderer>().material = materialObstacle[obstacleLvl];
+            if (angleNum < 10)
+            {
+                go.GetComponent<ObstacleRotation>().ObstacleLvl = obstacleLvl + 1;
+                go.GetComponent<MeshRenderer>().material = materialObstacle[obstacleLvl];
+            }
 
-            Color[] colors = new Color[] { new Color(224, 224, 224, 255), new Color(162, 245, 117, 255),
+            /*Color[] colors = new Color[] { new Color(224, 224, 224, 255), new Color(162, 245, 117, 255),
                 new Color(131, 255, 0, 255), new Color(8, 159, 77, 255), new Color(0, 185, 255, 255), new Color(8, 88 ,255, 255),
                 new Color(156, 38, 245, 255), new Color(255, 150, 0, 255), new Color(255, 8, 8, 255), new Color(130, 128, 128, 255)};
-
+            */
             /*try
             {
                 go.GetComponentInChildren<SpriteRenderer>().color = colors[obstacleLvl];
