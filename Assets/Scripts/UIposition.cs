@@ -10,12 +10,12 @@ public class UIposition : MonoBehaviour
 
     private void Start()
     {
-        if (Screen.height > 2208)
-        {
+        //if (Screen.height > 2208)
+        //{
             float screenAspect = defaultYPosition * 2208 / Screen.height;
             RectTransform rectTransform = GetComponent<RectTransform>();
             Vector3 position = rectTransform.localPosition;
             rectTransform.localPosition = new Vector3(position.x, screenAspect, position.z);
-        }
+        //}
     }
 }
