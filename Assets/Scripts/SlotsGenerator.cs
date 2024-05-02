@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using static GameProgress;
 
 public class SlotsGenerator : MonoBehaviour
 {
-    private Sprite[] cellSprites = new Sprite[8];
+    private Sprite[] cellSprites = new Sprite[9];
     private int[][] cV = new int[3][];
     private List<GameObject> cellGO = new List<GameObject>();
     private GameObject cellImagePrefab;
@@ -27,6 +28,7 @@ public class SlotsGenerator : MonoBehaviour
     private int totalResult = 0;
     private int countFreeSpins = 0;
     private int countLine = 0;
+    private int countBonus = 0;
     public bool isReadyToGenerate { get; private set; } = true;
 
     [SerializeField]
@@ -43,6 +45,11 @@ public class SlotsGenerator : MonoBehaviour
     private TextMeshProUGUI textPlusFreeSpin;
     [SerializeField]
     private SoundManager soundManager;
+    [SerializeField]
+    private GameObject bonusGame;
+    [SerializeField]
+    private List<TextMeshProUGUI> textBonusGame;
+
     private int betValue = 1;
     private float animationTime = 1.5f;
 
@@ -54,7 +61,8 @@ public class SlotsGenerator : MonoBehaviour
             {
                 GameObject go = GameObject.Instantiate(cellImagePrefab);
 
-                int ranValue = Random.Range(0, 8);
+                int ranValue = Random.Range(0, 17);
+                ranValue = ranValue / 2;
 
                 go.GetComponent<SpriteRenderer>().sprite = cellSprites[ranValue];
                 go.GetComponent<MoveCell>().MoveToBot();
@@ -68,7 +76,11 @@ public class SlotsGenerator : MonoBehaviour
             {
                 GameObject go = GameObject.Instantiate(cellImagePrefab);
 
-                int ranValue = Random.Range(0, 8);
+                int ranValue = Random.Range(0, 18);
+                ranValue = ranValue / 2;
+
+                if (ranValue == 8)
+                    countBonus++;
 
                 cV[j][i] = ranValue;
 
@@ -138,7 +150,7 @@ public class SlotsGenerator : MonoBehaviour
 
     public void FreeSpin()
     {
-        if(saveData.freeSpins > 0)
+        if(saveData.freeSpins > 0 && isReadyToGenerate)
         {
             isFreeSpin = true;
             saveData.freeSpins -= 1;
@@ -155,7 +167,8 @@ public class SlotsGenerator : MonoBehaviour
             {
                 GameObject go = GameObject.Instantiate(cellImagePrefab);
 
-                int ranValue = Random.Range(0, 8);
+                int ranValue = Random.Range(0, 17);
+                ranValue = ranValue / 2;
 
                 cV[j][i] = ranValue;
 
@@ -323,6 +336,7 @@ public class SlotsGenerator : MonoBehaviour
     {
         if (totalResult > 0)
             textTotalWin.gameObject.SetActive(true);
+
         TextMeshProUGUI text = textTotalWin.GetComponentInChildren<TextMeshProUGUI>(); 
 
         int textCount = 0;
@@ -374,16 +388,98 @@ public class SlotsGenerator : MonoBehaviour
 
         foreach (List<GameObject> go in currentFrames)
             go.Clear();
+        Debug.Log(countBonus);
 
-        saveData.money += totalResult;
+        if (countBonus > 2 && totalResult > 0)
+        {
+            for (int i = 0; i < cV.Length; i++)
+            {
+                for (int j = 0; j < cV[i].Length; j++)
+                {
+                    if (cV[i][j] == 8)
+                        frames[i][j].SetActive(true);
+                }
+            }
+
+            yield return new WaitForSeconds(animationTime);
+
+            for (int i = 0; i < cV.Length; i++)
+            {
+                for (int j = 0; j < cV[i].Length; j++)
+                {
+                    if (cV[i][j] == 8)
+                        frames[i][j].SetActive(false);
+                }
+            }
+
+            bonusGame.SetActive(true);
+        }
+        else
+        {
+            countBonus = 0;
+
+            saveData.money += totalResult;
+            saveData.freeSpins += countFreeSpins;
+            money.text = saveData.money.ToString();
+            textFreeSpin.text = saveData.freeSpins.ToString();
+            GameProgress.SaveGame(saveData);
+
+            textPlusFreeSpin.gameObject.SetActive(false);
+            isReadyToGenerate = true;
+        }
+    }
+
+    public void PressOnBonus(int pos)
+    {
+        StartCoroutine(BonusGame(pos));
+    }
+
+    private IEnumerator BonusGame(int pos)
+    {
+        int[] coef = new int[4];
+
+        for (int i = 0; i < coef.Length; i++)
+        {
+            coef[i] = Random.Range(2, countBonus + 2);
+            textBonusGame[i].gameObject.SetActive(true);
+            textBonusGame[i].text = coef[i].ToString();
+            if (i == pos)
+            {
+                textBonusGame[i].gameObject.AddComponent<TextScale>();
+                textBonusGame[i].gameObject.GetComponent<TextScale>().SetScaleValues(70, 90);
+            }
+        }
+
+        yield return new WaitForSeconds(animationTime);
+
+        float currentCount = 0;
+        float textCount = totalResult;
+        TextMeshProUGUI text = textTotalWin.GetComponentInChildren<TextMeshProUGUI>();
+
+        soundManager.WinSpin();
+        for (float j = 0; j <= animationTime; j += Time.deltaTime)
+        {
+            currentCount = j * totalResult * (coef[pos] - 1) / animationTime;
+            text.text = ((int)(textCount + currentCount)).ToString();
+            yield return new WaitForEndOfFrame();
+        }
+        text.text = (totalResult * coef[pos]).ToString();
+
+        yield return new WaitForSeconds(1);
+
+        countBonus = 0;
+        saveData.money += totalResult * coef[pos];
         saveData.freeSpins += countFreeSpins;
         money.text = saveData.money.ToString();
         textFreeSpin.text = saveData.freeSpins.ToString();
         GameProgress.SaveGame(saveData);
 
+        bonusGame.SetActive(false);
+
         textPlusFreeSpin.gameObject.SetActive(false);
         isReadyToGenerate = true;
     }
+
     private int CountResult(int num, int[] cv, int[][] pos)
     {
         bool isUnique = true;

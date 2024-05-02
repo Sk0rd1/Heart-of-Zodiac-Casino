@@ -79,11 +79,11 @@ public class SoundManager : MonoBehaviour
 
         if (volume == 0f)
         {
-            PlayerPrefs.SetInt("isSound", 1);
+            Debug.Log("Save 1");
         }
         else
         {
-            PlayerPrefs.SetInt("isSound", 0);
+            Debug.Log("Save 0");
         }
 
         PlayerPrefs.Save();

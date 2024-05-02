@@ -17,10 +17,28 @@ public class TextScale : MonoBehaviour
     TextMeshProUGUI thisText;
     private float currentScale;
 
+    private bool isScale = true;
+
     private void Start()
     {
         currentScale = minScale;
         thisText = GetComponent<TextMeshProUGUI>();
+    }
+
+    public void SetScaleValues(int min, int max)
+    {
+        minScale = min;
+        maxScale = max;
+    }
+
+    public void StopScale()
+    {
+        isScale = false;
+    }
+
+    public void StartScale()
+    {
+        isScale = true;
     }
 
     public void Hide()
@@ -30,26 +48,29 @@ public class TextScale : MonoBehaviour
 
     private void Update()
     {
-        if (isIncrease)
+        if (isScale)
         {
-            if(currentScale >= maxScale) 
+            if (isIncrease)
             {
-                isIncrease = false;
+                if (currentScale >= maxScale)
+                {
+                    isIncrease = false;
+                }
+
+                currentScale += speedScale * Time.deltaTime;
+            }
+            else
+            {
+                if (currentScale <= minScale)
+                {
+                    isIncrease = true;
+                }
+
+                currentScale -= speedScale * Time.deltaTime;
             }
 
-            currentScale += speedScale * Time.deltaTime;
+            thisText.fontSize = currentScale;
         }
-        else
-        {
-            if (currentScale <= minScale)
-            {
-                isIncrease = true;
-            }
-
-            currentScale -= speedScale * Time.deltaTime;
-        }
-
-        thisText.fontSize = currentScale;
     }
 
 }
