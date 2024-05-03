@@ -309,6 +309,8 @@ public class SlotsGenerator : MonoBehaviour
 
         if (countLine == 9)
         {
+            if (totalResult == 0)
+                isFreeSpin = false;
             countLine = 0;
             StartCoroutine(ShowWinLines());
             StartCoroutine(ShowWin());
