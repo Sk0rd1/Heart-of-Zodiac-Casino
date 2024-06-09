@@ -1,4 +1,4 @@
-#Heart of Zodiac Casino
+# Heart of Zodiac Casino
 
 Enter the captivating world of Heart of Zodiac Casino, where the thrill of the casino meets the challenge of solving puzzles. In this unique mobile game, you'll use your key to unlock slot machines, spin the reels, and collect coins to progress through the game. With its captivating graphics, engaging gameplay, and exciting casino simulation features, Heart of Zodiac Casino is sure to keep you entertained for hours on end.
 
